@@ -1,0 +1,226 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ShortLeaveForm</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container form-card">
+      <div class="header">
+        <div>
+          <img
+            src="images/MascoLogo_Original.png"
+            height="75"
+            width="60"
+            style="text-align: left"
+          />
+        </div>
+        <div class="text-center header-title">
+          <h2 class="">MASCO GROUP</h2>
+          <h4>Outstation Duty Form</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 inline-item">
+          <label>Ref No <span>(ক্রমিক নং)</span>:</label>
+          <div class="info-value">OSD-2025-(live dd/mm/yyyy)</div>
+        </div>
+        <div class="col-md-6 inline-item">
+          <label
+            >Unit Name: <br />
+            <span> (ইউনিটের নাম):</span></label
+          >
+          <div class="info-value" id="unitName">Head Office</div>
+        </div>
+
+        <div class="col-md-6 inline-item">
+          <label>Applicant ID: <br /><span>(আবেদনকারীর আইডি):</span></label>
+          <div class="info-value" id="empId">184288</div>
+          <input type="hidden" id="empNo" />
+        </div>
+        <div class="col-md-6 inline-item">
+          <label>Name <span>(নাম):</span> </label>
+          <div class="info-value" id="empName">Md. Tahsin Faruque</div>
+        </div>
+
+        <div class="col-md-6 inline-item">
+          <label>Designation <span>(পদবি)</span> :</label>
+          <div class="info-value" id="empDesignation">Executive</div>
+        </div>
+        <div class="col-md-6 inline-item">
+          <label>Section <span> (সেকশন)</span>:</label>
+          <div class="info-value" id="empSection">System Development</div>
+        </div>
+      </div>
+
+      <div class="form-section-title mt-5">Details (বিবরণ)</div>
+
+      <div class="row mt-3">
+        <div class="col-md-3">
+          <label class="text-label">Date From(তারিখ - থেকে)</label>
+          <input
+            type="text"
+            class="form-control date hasDatepicker"
+            id="txtDate"
+          />
+        </div>
+        <div class="col-md-3">
+          <label class="text-label">Date To(তারিখ - পর্যন্ত)</label>
+          <input
+            type="text"
+            class="form-control date hasDatepicker"
+            id="txtDate"
+          />
+        </div>
+        <div class="col-md-3">
+          <label class="text-label">Time From (সময় - থেকে)</label>
+          <input
+            type="time"
+            id="txtTimeFrom"
+            class="date datepicker mr-1 form-control"
+            style=""
+          />
+        </div>
+        <div class="col-md-3">
+          <label class="text-label">Time To (সময় - পর্যন্ত)</label>
+          <input
+            type="time"
+            id="txtTimeTo"
+            class="date datepicker ml-1 form-control"
+            style=""
+          />
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-3">
+          <label class="text-label">Buyer (বায়ার)</label>
+          <select id="buyerSelect" class="custom-select mt-2">
+            <option value="-1">-- Select --</option>
+            <option value="#">Fetch the buyer names from the system</option>
+          </select>
+        </div>
+
+        <!-- Radio Buttons for Inside / Outside -->
+        <div class="col-md-5">
+          <label class="text-label d-block mb-3 justify-content-center"
+            >Location Type (স্থান)</label
+          >
+          <div class="form-check form-check-inline justify-content-center">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="locationType"
+              id="insideRadio"
+              value="inside"
+              checked
+            />
+            <label class="form-check-label" for="insideRadio"
+              >Inside (ভিতরে)</label
+            >
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="locationType"
+              id="outsideRadio"
+              value="outside"
+            />
+            <label class="form-check-label" for="outsideRadio"
+              >Outside (বাহিরে)</label
+            >
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="text-label">Place of Visit (দর্শনের স্থান)</label>
+
+          <select id="placeDropdown" class="custom-select mt-2">
+            <option value="-1">-- Select --</option>
+            <option value="#">Fetch the unit names from the system</option>
+          </select>
+
+          <input
+            type="text"
+            id="placeTextbox"
+            class="form-control mt-2 d-none"
+            placeholder="Enter place of visit"
+          />
+        </div>
+      </div>
+
+      <div class="form-group mt-4">
+        <label class="text-label">Reason (কারণ)</label>
+        <input type="text" class="form-control date" id="txtReason" />
+      </div>
+
+      <div class="form-section-title mt-5">Approval (অনুমোদন)</div>
+
+      <div class="row mt-3">
+        <div class="col-md-6 text-center">
+          <img src="images/sign.jpg" alt="applicant sign" class="sign" /> <br />
+          <small class="text-label">Applicant (আবেদনকারী)</small>
+        </div>
+        <div class="col-md-6 text-center">
+          <label class="text-label">Approver (অনুমোদনকারী)</label>
+          <select id="concernHead" class="custom-select mt-2">
+            <option value="-1">-- Select --</option>
+            <option value="12164">Ahmed Eid</option>
+            <option value="17930">Md. Nurul Amin</option>
+            <option value="97671">Md. Zahidul Mahmud</option>
+            <option value="133045">Mohammad Imam Hossain</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <button id="btnSave" class="btn btn-navy pxy-5">
+          Submit (আবেদন করুন)
+        </button>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var base = "/";
+      $.getScript(
+        "../AppJs/Document%20Download%20Section/ShortLeaveFormNew.js",
+        function (data, textStatus, jqxhr) {
+          console.log("Script File Load Status=" + jqxhr.status);
+        }
+      );
+    </script>
+
+    <script>
+      // location type ---
+      const insideRadio = document.getElementById("insideRadio");
+      const outsideRadio = document.getElementById("outsideRadio");
+      const placeDropdown = document.getElementById("placeDropdown");
+      const placeTextbox = document.getElementById("placeTextbox");
+
+      insideRadio.addEventListener("change", () => {
+        if (insideRadio.checked) {
+          placeDropdown.classList.remove("d-none");
+          placeTextbox.classList.add("d-none");
+        }
+      });
+
+      outsideRadio.addEventListener("change", () => {
+        if (outsideRadio.checked) {
+          placeDropdown.classList.add("d-none");
+          placeTextbox.classList.remove("d-none");
+        }
+      });
+    </script>
+  </body>
+</html>
